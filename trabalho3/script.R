@@ -89,3 +89,5 @@ legend("topright", pch = 19, col = unique(cores),
 dev.copy(png, file = "rouboHomicidioAISP.png")
 dev.off()
 
+
+
