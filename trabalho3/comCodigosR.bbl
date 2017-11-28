@@ -1,0 +1,40 @@
+\begin{thebibliography}{1}
+
+\bibitem{intro2}
+Minera{\c c}{\~a}o de dados.
+\newblock Dispon{\'\i}vel em
+  http://www.din.uem.br/\~intersul/intersul{\_}\\arquivos/documentos/mineracao.pdf.
+  Acesso em 22-nov-2017.
+
+\bibitem{intro1}
+Minera{\c c}{\~a}o de dados: o que {\'e} e por que {\'e} importante?
+\newblock Dispon{\'\i}vel em
+  \url{https://www.sas.com/pt_br/insights/analytics/mineracao-de-dados.html}.
+  Acesso em 23-nov-2017.
+
+\bibitem{rcite2}
+O que {\'e} programa{\c c}{\~a}o ou linguagem em r?
+\newblock Dispon{\'\i}vel em
+  \url{http://www.ibpad.com.br/blog/o-que-e-programacao-\\ou-linguagem-em-r/}.
+  Acesso em 24-nov-2017.
+
+\bibitem{aisp}
+Seguran{\c c}a: Risps, aisps e cisps.
+\newblock Dispon{\'\i}vel em
+  http://www.rj.gov.br/web/seseg/\\exibeConteudo?article-id=1349694. Acesso em
+  23-nov-2017.
+
+\bibitem{dados}
+Instituto de~Seguran{\c c}a P{\'u}blica do Rio~de Janeiro.
+\newblock Isp dados abertos.
+\newblock Dispon{\'\i}vel em http://www.ispdados.rj.gov.br. Acesso em
+  23-nov-2017.
+
+\bibitem{rwiki}
+Wikipedia.
+\newblock Linguagem r.
+\newblock Dispon{\'\i}vel em
+  \url{https://pt.wikipedia.org/wiki/R{\_}(linguagem{\_}de{\_}\\programa{\%}C3{\%}A7{\%}C3{\%}A3o)}.
+  Acesso em 24-nov-2017.
+
+\end{thebibliography}

@@ -1,4 +1,54 @@
-\documentclass[a4paper, 12pt]{article}
+\documentclass[a4paper, 12pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
 \usepackage[utf8]{inputenc}
 \usepackage[brazilian, english]{babel}
 \usepackage{indentfirst}
@@ -18,8 +68,7 @@
 
 \title{\textbf{Uso do Algoritmo K-means na Ilustração da Técnica de Clusterização:  um Estudo de Caso Utilizando R}}
 \author{\textit{Eric Calasans de Barros}\\\textit{Fagner Freire de Oliveira}}
-
-
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 	\maketitle
 	
@@ -43,17 +92,17 @@
 	
 	\begin{multicols}{2}
 		\section{Introdução}
-		Mineração de dados é o método de investigação de grandes quantidades de dados com o objetivo de encontrar irregularidade, padrões e correlações para arcar a tomada de decisões e possibilitar vantagens estratégicas.\\
+		Mineração de dados é o método de investigação de grandes quantidades de dados com o objetivo de encontrar irregularidade, padrões e correlações para arcar a tomada de decisões e possibilitar vantagens estratégicas\cite{intro1}.\\
 		
 		A quantidade de dados produzido está dobrando a cada dois anos. Dados não-estruturados compõem sozinhos 90\% do nosso universo digital. Entretanto, mais informação não significa necessariamente mais conhecimento. A mineração de dados nos permite filtrar todo o ruído caótico e repetitivo, entender o que é relevante e, então, fazer bom uso dessa informação para avaliar os prováveis resultados.
 		
 		Os resultados obtidos com a mineração de dados podem ser usados no gerenciamento de informação, processamento de pedidos de informação, tomada de decisão, controle de processo e muitas outras aplicações. A mineração de dados pode ser aplicada de duas formas: como um processo de verificação e como um processo de descoberta . No processo de verificação, o usuário sugere uma hipótese acerca da relação entre os dados e tenta prová-la aplicando técnicas como análises estatística e multidimensional sobre um banco de dados contendo informações passadas. No processo de descoberta não é feita nenhuma suposição antecipada. Esse processo usa técnicas, tais como, árvores de decisão, algoritmos genéticos e redes neurais.\\
 		
-		As técnicas de mineração de dados podem ser aplicadas a tarefas como classificação, estimativa, associação, sumarização e segmentação. Essas tarefas são descritas a seguir:
+		As técnicas de mineração de dados podem ser aplicadas a tarefas como classificação, estimativa, associação, sumarização e segmentação. Essas tarefas são descritas a seguir\cite{intro2}:
 		\begin{itemize}
 			\item \textbf{Classificação} - Reconhece modelos que descrevem o grupo ao qual o item pertence por meio do exame dos itens já classificados e pela inferência de um conjunto de regras. Equivale  a construir um modelo de algum tipo que possa ser aplicado a dados não classificados visando categorizá-los em classes.  Empresas de operadoras de cartões de crédito e companhias telefônicas preocupam-se com a perda de clientes regulares: a classificação pode ajudar a descobrir as características de clientes que provavelmente virão abandoná-las e oferecer um modelo para ajudar os gerentes a prever quem são, de modo que se elabore antecipadamente campanhas especiais para reter esses clientes;
 			
-			\item \textbf{Estiimativa ou Regressão} - A estimativa é utilizada para determinar  valores para alguma variável contínua desconhecida como, por exemplo, lucro, distância ou saldo na poupança. Ela lida com resultados contínuos, enquanto que a classificação lida com resultados discretos. Ela pode ser usada para executar uma tarefa de classificação, convencionando-se que diferentes intervalos de valores contínuos correspondem a diferentes classes. Como exemplos de tarefas de estimativa tem-se : estimar o número de alunos de uma escola; estimar o lucro  total de uma empresa;  prever a demanda de consumidores para um novo produto;
+			\item \textbf{Estimativa ou Regressão} - A estimativa é utilizada para determinar  valores para alguma variável contínua desconhecida como, por exemplo, lucro, distância ou saldo na poupança. Ela lida com resultados contínuos, enquanto que a classificação lida com resultados discretos. Ela pode ser usada para executar uma tarefa de classificação, convencionando-se que diferentes intervalos de valores contínuos correspondem a diferentes classes. Como exemplos de tarefas de estimativa tem-se : estimar o número de alunos de uma escola; estimar o lucro  total de uma empresa;  prever a demanda de consumidores para um novo produto;
 			
 			\item \textbf{Associação} - a detecção de relações entre os registros, ocorrências ligadas a um único evento. O exemplo clássico é determinar quais produtos costumam ser colocados juntos em um carrinho de supermercado; outro exemplo seria um estudo de modelos de compra em lojas de carros pode revelar que, na compra de um carro automático, 85\% das pessoas querem ele com bancada de couro;
 			
@@ -80,10 +129,10 @@
 		
 		Neste aspecto, o estudo da Estatística e suas técnicas de análise de dados, aliado ao uso de uma ferramenta computacional que possibilite ao analista acelerar os cálculos e produzir gráficos de qualidade configuram-se nos maiores aliados para esta tarefa.\\
 		
-		A \textbf{linguagem R(R)} foi criada originalmente no departamento de Estatística da universidade de Auckland, Nova Zelândia, por Ross Ihaka e Robert Gentleman.  Oferece uma grande variedade de funções estatísticas e de plotagem de gráficos, bem como oferece uma facilidade na hora de produzir códigos de qualidade e softwares interativos.  Pode ser aplicada em várias áreas do conhecimento que requeiram manipulação de dados estatísticos:  Ciências Biológicas, Sociais, Exatas, Engenharia, etc. 
+		A \textbf{linguagem R(R)} foi criada originalmente no departamento de Estatística da universidade de Auckland, Nova Zelândia, por Ross Ihaka e Robert Gentleman\cite{rwiki}.  Oferece uma grande variedade de funções estatísticas e de plotagem de gráficos, bem como oferece uma facilidade na hora de produzir códigos de qualidade e softwares interativos\cite{rcite2}.  Pode ser aplicada em várias áreas do conhecimento que requeiram manipulação de dados estatísticos:  Ciências Biológicas, Sociais, Exatas, Engenharia, etc. 
 		
 		\section{Metodologia}
-		 Os dados para análise foram obtidos diretamente do site do Instituto de Segurança Pública do Estado do Rio de Janeiro(\url{http://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv}), constando de uma base de dados(\textbf{DB}) contendo 23185 linhas, dispostas em 61 colunas.  De acordo com o site, as Áreas Integradas de Segurança Pública(\textbf{AISP}) foram criadas através da \textbf{Resolução SSP N. 263 de 27 de julho de 1999}, como parte de uma política de segurança pública que tinha por objetivo estreitar a ligação entre as Polícias Civil e Militar, bem como destas com as comunidades abrangidas pelas AISP através da gestão participativa na identificação e resolução dos problemas locais de segurança pública.  A figura abaixo mostra a área de jurisdição de cada AISP no RJ:
+		 Os dados para análise foram obtidos diretamente do site do Instituto de Segurança Pública do Estado do Rio de Janeiro(\url{http://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv})\cite{dados}, constando de uma base de dados(\textbf{DB}) contendo 23185 linhas, dispostas em 61 colunas.  De acordo com o site, as Áreas Integradas de Segurança Pública(\textbf{AISP}) foram criadas através da \textbf{Resolução SSP N. 263 de 27 de julho de 1999}, como parte de uma política de segurança pública que tinha por objetivo estreitar a ligação entre as Polícias Civil e Militar, bem como destas com as comunidades abrangidas pelas AISP através da gestão participativa na identificação e resolução dos problemas locais de segurança pública\cite{aisp}.  A figura abaixo mostra a área de jurisdição de cada AISP no RJ:
 	\end{multicols}
 			 %Colocar figura da AISP
 	\begin{figure}[H]
@@ -109,37 +158,97 @@
 		 	\end{itemize}
 	 	A seguir os dados foram agrupados em dois subconjuntos de dados:  por \textbf{mes\_ano} e por \textbf{AISP};  desta forma a visualização da técnica de clusterização ficou mais fácil de ser percebida. \\
 	 	\end{multicols}
-<<leitura_e_agrupamento, tidy=FALSE, size="footnotesize">>=
-library(dplyr)
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlkwd{library}\hlstd{(dplyr)}
+\end{alltt}
 
-#Leitura do arquivo da base de dados
-base <- read.csv("BaseDPEvolucaoMensalCisp.csv", sep = ';')
 
-#Agrupamento por mês
-porMes <- group_by(base, mes_ano) %>% 
-summarise(estupro=sum(estupro), 
-celular=sum(roubo_celular), tentHomicidio=sum(tentat_hom), 
-homDoloso=sum(hom_doloso), homCulposo = sum(hom_culposo), 
-rouboVeiculo=sum(roubo_veiculo), estelionato=sum(estelionato), 
-pessDesap=sum(pessoas_desaparecidas))
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: package 'dplyr' was built under R version 3.4.2}}
 
-#Agrupamento por AISP
-porAISP <- group_by(base, AISP) %>% 
-summarise(estupro=sum(estupro), celular=sum(roubo_celular), 
-tentHomicidio=sum(tentat_hom),homDoloso=sum(hom_doloso), 
-homCulposo = sum(hom_culposo), rouboVeiculo=sum(roubo_veiculo),
-estelionato=sum(estelionato), pessDesap=sum(pessoas_desaparecidas))
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# \\\#\# Attaching package: 'dplyr'}}
 
-@
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# The following objects are masked from 'package:stats':\\\#\# \\\#\#\ \ \ \  filter, lag}}
+
+{\ttfamily\noindent\itshape\color{messagecolor}{\#\# The following objects are masked from 'package:base':\\\#\# \\\#\#\ \ \ \  intersect, setdiff, setequal, union}}\begin{alltt}
+\hlcom{#Leitura do arquivo da base de dados}
+\hlstd{base} \hlkwb{<-} \hlkwd{read.csv}\hlstd{(}\hlstr{"BaseDPEvolucaoMensalCisp.csv"}\hlstd{,} \hlkwc{sep} \hlstd{=} \hlstr{';'}\hlstd{)}
+
+\hlcom{#Agrupamento por mês}
+\hlstd{porMes} \hlkwb{<-} \hlkwd{group_by}\hlstd{(base, mes_ano)} \hlopt{%>%}
+\hlkwd{summarise}\hlstd{(}\hlkwc{estupro}\hlstd{=}\hlkwd{sum}\hlstd{(estupro),}
+\hlkwc{celular}\hlstd{=}\hlkwd{sum}\hlstd{(roubo_celular),} \hlkwc{tentHomicidio}\hlstd{=}\hlkwd{sum}\hlstd{(tentat_hom),}
+\hlkwc{homDoloso}\hlstd{=}\hlkwd{sum}\hlstd{(hom_doloso),} \hlkwc{homCulposo} \hlstd{=} \hlkwd{sum}\hlstd{(hom_culposo),}
+\hlkwc{rouboVeiculo}\hlstd{=}\hlkwd{sum}\hlstd{(roubo_veiculo),} \hlkwc{estelionato}\hlstd{=}\hlkwd{sum}\hlstd{(estelionato),}
+\hlkwc{pessDesap}\hlstd{=}\hlkwd{sum}\hlstd{(pessoas_desaparecidas))}
+
+\hlcom{#Agrupamento por AISP}
+\hlstd{porAISP} \hlkwb{<-} \hlkwd{group_by}\hlstd{(base, AISP)} \hlopt{%>%}
+\hlkwd{summarise}\hlstd{(}\hlkwc{estupro}\hlstd{=}\hlkwd{sum}\hlstd{(estupro),} \hlkwc{celular}\hlstd{=}\hlkwd{sum}\hlstd{(roubo_celular),}
+\hlkwc{tentHomicidio}\hlstd{=}\hlkwd{sum}\hlstd{(tentat_hom),}\hlkwc{homDoloso}\hlstd{=}\hlkwd{sum}\hlstd{(hom_doloso),}
+\hlkwc{homCulposo} \hlstd{=} \hlkwd{sum}\hlstd{(hom_culposo),} \hlkwc{rouboVeiculo}\hlstd{=}\hlkwd{sum}\hlstd{(roubo_veiculo),}
+\hlkwc{estelionato}\hlstd{=}\hlkwd{sum}\hlstd{(estelionato),} \hlkwc{pessDesap}\hlstd{=}\hlkwd{sum}\hlstd{(pessoas_desaparecidas))}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
 
 		\begin{multicols}{2}
 		Utilizando o R pode-se sumarizar os dados nas suas medidas estatísticas(média, máximo, mínimo, desvio-padrão) e se ter uma ideia da estatística descritiva destes conjuntos de dados:
 		\end{multicols}
-<<sumario, tidy=FALSE, size="footnotesize">>=
-#Principais variáveis estatísticas
-summary(porMes)
-summary(porAISP)
-@
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#Principais variáveis estatísticas}
+\hlkwd{summary}\hlstd{(porMes)}
+\end{alltt}
+\begin{verbatim}
+##     mes_ano       estupro         celular       tentHomicidio  
+##  2003m1 :  1   Min.   :188.0   Min.   : 301.0   Min.   :243.0  
+##  2003m10:  1   1st Qu.:276.2   1st Qu.: 529.2   1st Qu.:325.2  
+##  2003m11:  1   Median :359.0   Median : 656.5   Median :365.0  
+##  2003m12:  1   Mean   :359.0   Mean   : 781.6   Mean   :388.6  
+##  2003m2 :  1   3rd Qu.:428.8   3rd Qu.: 913.0   3rd Qu.:443.2  
+##  2003m3 :  1   Max.   :561.0   Max.   :2548.0   Max.   :645.0  
+##  (Other):168                                                   
+##    homDoloso       homCulposo     rouboVeiculo   estelionato  
+##  Min.   :272.0   Min.   :111.0   Min.   :1413   Min.   : 717  
+##  1st Qu.:377.2   1st Qu.:175.0   1st Qu.:2052   1st Qu.:1561  
+##  Median :446.0   Median :195.0   Median :2506   Median :2036  
+##  Mean   :450.7   Mean   :199.1   Mean   :2524   Mean   :2121  
+##  3rd Qu.:521.8   3rd Qu.:225.8   3rd Qu.:2858   3rd Qu.:2803  
+##  Max.   :682.0   Max.   :299.0   Max.   :5002   Max.   :3484  
+##                                                               
+##    pessDesap    
+##  Min.   :236.0  
+##  1st Qu.:390.5  
+##  Median :436.5  
+##  Mean   :441.3  
+##  3rd Qu.:493.8  
+##  Max.   :628.0  
+## 
+\end{verbatim}
+\begin{alltt}
+\hlkwd{summary}\hlstd{(porAISP)}
+\end{alltt}
+\begin{verbatim}
+##       AISP       estupro        celular      tentHomicidio    homDoloso   
+##  Min.   : 1   Min.   : 148   Min.   :   52   Min.   : 178   Min.   : 108  
+##  1st Qu.:11   1st Qu.: 697   1st Qu.:  804   1st Qu.: 824   1st Qu.: 524  
+##  Median :21   Median :1268   Median : 1926   Median :1381   Median :1477  
+##  Mean   :21   Mean   :1524   Mean   : 3317   Mean   :1649   Mean   :1913  
+##  3rd Qu.:31   3rd Qu.:2252   3rd Qu.: 4471   3rd Qu.:2387   3rd Qu.:2651  
+##  Max.   :41   Max.   :5864   Max.   :13374   Max.   :4419   Max.   :8499  
+##    homCulposo      rouboVeiculo    estelionato      pessDesap   
+##  Min.   :  58.0   Min.   :  104   Min.   : 1310   Min.   : 282  
+##  1st Qu.: 433.0   1st Qu.:  852   1st Qu.: 4685   1st Qu.: 881  
+##  Median : 668.0   Median : 4796   Median : 6919   Median :1378  
+##  Mean   : 844.8   Mean   :10711   Mean   : 9003   Mean   :1873  
+##  3rd Qu.:1126.0   3rd Qu.:14485   3rd Qu.:13119   3rd Qu.:2596  
+##  Max.   :2498.0   Max.   :57974   Max.   :27322   Max.   :6644
+\end{verbatim}
+\end{kframe}
+\end{knitrout}
 		\begin{multicols}{2}
 		Na sequência foi utilizada uma função intrínseca do R chamada \textit{\textbf{kmeans}}, que recebe como parâmetros um conjunto de dados e um número específico de centróides(maior que 2) e retorna um conjunto de dados formado por subconjuntos específicos, dos quais os de interesse para o estudo são:
 			\begin{itemize}
@@ -147,29 +256,32 @@ summary(porAISP)
 				\item \texttt{centers} - coordenadas dos centros passados como parâmetros após a execução da função.
 			\end{itemize}
 		\end{multicols}
-<<appKmeans, size="footnotesize", tidy=FALSE>>=
-#Aplicação do kmeans
-kCelularEstuproMes <- kmeans(data.frame(porMes$celular, porMes$estupro), 
-                             centers = 3)
-kCelularEstuproAISP <- kmeans(data.frame(porAISP$celular, porAISP$estupro), 
-                              centers = 3)
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+\begin{alltt}
+\hlcom{#Aplicação do kmeans}
+\hlstd{kCelularEstuproMes} \hlkwb{<-} \hlkwd{kmeans}\hlstd{(}\hlkwd{data.frame}\hlstd{(porMes}\hlopt{$}\hlstd{celular, porMes}\hlopt{$}\hlstd{estupro),}
+                             \hlkwc{centers} \hlstd{=} \hlnum{3}\hlstd{)}
+\hlstd{kCelularEstuproAISP} \hlkwb{<-} \hlkwd{kmeans}\hlstd{(}\hlkwd{data.frame}\hlstd{(porAISP}\hlopt{$}\hlstd{celular, porAISP}\hlopt{$}\hlstd{estupro),}
+                              \hlkwc{centers} \hlstd{=} \hlnum{3}\hlstd{)}
 
-kEstuproTentHomicidioMes <- kmeans(data.frame(porMes$estupro, 
-      porMes$tentHomicidio), centers = 3)
-kEstuproTentHomicidioAISP <- kmeans(data.frame(porAISP$estupro, 
-              porAISP$tentHomicidio), centers = 3)
+\hlstd{kEstuproTentHomicidioMes} \hlkwb{<-} \hlkwd{kmeans}\hlstd{(}\hlkwd{data.frame}\hlstd{(porMes}\hlopt{$}\hlstd{estupro,}
+      \hlstd{porMes}\hlopt{$}\hlstd{tentHomicidio),} \hlkwc{centers} \hlstd{=} \hlnum{3}\hlstd{)}
+\hlstd{kEstuproTentHomicidioAISP} \hlkwb{<-} \hlkwd{kmeans}\hlstd{(}\hlkwd{data.frame}\hlstd{(porAISP}\hlopt{$}\hlstd{estupro,}
+              \hlstd{porAISP}\hlopt{$}\hlstd{tentHomicidio),} \hlkwc{centers} \hlstd{=} \hlnum{3}\hlstd{)}
 
-kRouboVeiculoTentHomicidioMes <- kmeans(data.frame(porMes$rouboVeiculo, 
-      porMes$tentHomicidio), centers = 4)
-kRouboVeiculoTentHomicidioAISP <- kmeans(data.frame(porAISP$rouboVeiculo, 
-                porAISP$tentHomicidio), centers = 4)
+\hlstd{kRouboVeiculoTentHomicidioMes} \hlkwb{<-} \hlkwd{kmeans}\hlstd{(}\hlkwd{data.frame}\hlstd{(porMes}\hlopt{$}\hlstd{rouboVeiculo,}
+      \hlstd{porMes}\hlopt{$}\hlstd{tentHomicidio),} \hlkwc{centers} \hlstd{=} \hlnum{4}\hlstd{)}
+\hlstd{kRouboVeiculoTentHomicidioAISP} \hlkwb{<-} \hlkwd{kmeans}\hlstd{(}\hlkwd{data.frame}\hlstd{(porAISP}\hlopt{$}\hlstd{rouboVeiculo,}
+                \hlstd{porAISP}\hlopt{$}\hlstd{tentHomicidio),} \hlkwc{centers} \hlstd{=} \hlnum{4}\hlstd{)}
 
-porMes <- data.frame(porMes, kCelularEstuproMes$cluster,
-  kEstuproTentHomicidioMes$cluster, kRouboVeiculoTentHomicidioMes$cluster)
-porAISP <- data.frame(porAISP, kEstuproTentHomicidioAISP$cluster, 
-kEstuproTentHomicidioAISP$cluster, kRouboVeiculoTentHomicidioAISP$cluster)
-
-@
+\hlstd{porMes} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(porMes, kCelularEstuproMes}\hlopt{$}\hlstd{cluster,}
+  \hlstd{kEstuproTentHomicidioMes}\hlopt{$}\hlstd{cluster, kRouboVeiculoTentHomicidioMes}\hlopt{$}\hlstd{cluster)}
+\hlstd{porAISP} \hlkwb{<-} \hlkwd{data.frame}\hlstd{(porAISP, kEstuproTentHomicidioAISP}\hlopt{$}\hlstd{cluster,}
+\hlstd{kEstuproTentHomicidioAISP}\hlopt{$}\hlstd{cluster, kRouboVeiculoTentHomicidioAISP}\hlopt{$}\hlstd{cluster)}
+\end{alltt}
+\end{kframe}
+\end{knitrout}
   \begin{multicols}{2}
 		Para cada subconjunto de dados o \textit{kmeans} foi aplicado nos seguintes cruzamentos de dados:
 			\begin{itemize}
@@ -219,6 +331,10 @@ kEstuproTentHomicidioAISP$cluster, kRouboVeiculoTentHomicidioAISP$cluster)
 		
 		\section{Conclusão}
 		A técnica de clusterização \textit{kmeans} é consagrada no meio estatístico como um método eficiente para agrupar dados de acordo com um determinado critério, a saber, a distância euclidiana a um determinado centróide.  Utilizada com conhecimento, aliada a um poderoso software estatístico é capaz de extrair informação de onde aparentemente há apenas desordem e desinformação.
+		
+		\bibliographystyle{plain}
+		\bibliography{kmeans}
+		
 	\end{multicols}
 
 \end{document}
