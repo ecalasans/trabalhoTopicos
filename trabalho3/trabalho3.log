@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.10)  27 NOV 2017 17:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017) (preloaded format=pdflatex 2017.10.29)  27 NOV 2017 21:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1371,50 +1371,116 @@ Underfull \hbox (badness 10000) in paragraph at lines 45--46
  []
 
 
-Underfull \hbox (badness 8151) in paragraph at lines 50--51
+Underfull \hbox (badness 10000) in paragraph at lines 47--48
+
+ []
+
+
+Underfull \hbox (badness 8151) in paragraph at lines 49--50
 \OT1/cmr/m/n/14.4 ece uma grande var-iedade
  []
 
 
-Underfull \hbox (badness 5431) in paragraph at lines 50--51
+Underfull \hbox (badness 5431) in paragraph at lines 49--50
 \OT1/cmr/m/n/14.4 plotagem de gr^^Saficos, bem
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+[]\OT1/cmr/m/n/14.4 Os da-dos para an^^Salise
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+\OT1/cmr/m/n/14.4 foram obti-dos di-re-ta-mente
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+\OT1/cmtt/m/n/14.4 www . ispdados . rj . gov . br /
+ []
+
+
+Overfull \hbox (61.9396pt too wide) in paragraph at lines 52--53
+\OT1/cmtt/m/n/14.4 Arquivos / BaseDPEvolucaoMensalCisp .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
+
+ []
+
 [2]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 53.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 53.
+Underfull \hbox (badness 10000) in paragraph at lines 54--56
+[]\OT1/cmr/m/n/14.4 Para efeitos de es-tudo
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--58
+\OT1/cmr/m/n/14.4 da co-mu-nica^^Xc~ao da
+ []
+
+
+Overfull \hbox (1.78236pt too wide) in paragraph at lines 59--60
+[]\OT1/cmr/bx/n/14.4 hom[]culposo \OT1/cmr/m/n/14.4 - Homic^^S^^Pdio
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+[]\OT1/cmr/bx/n/14.4 pessoas[]desaparecidas
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 67--69
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+[]\OT1/cmr/m/n/14.4 Utilizando o R pode-se
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+\OT1/cmr/m/n/14.4 me-di-das es-tat^^S^^Psticas(m^^Sedia,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 70--72
+\OT1/cmr/m/n/14.4 m^^Saximo, m^^S^^Pnimo, desvio-
+ []
+
+[3]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 74.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 74.
  (./trabalho3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 53.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 53.
-
-
-Package rerunfilecheck Warning: File `trabalho3.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `trabalho3.out':
-(rerunfilecheck)             Before: 359F31B095D63909DEF8E34E21D1ED56;51
-(rerunfilecheck)             After:  F7643A3816D594382C82C72C64EA4E9A;97.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 53.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 74.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 74.
+Package rerunfilecheck Info: File `trabalho3.out' has not changed.
+(rerunfilecheck)             Checksum: F7643A3816D594382C82C72C64EA4E9A;97.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 74.
  ) 
 Here is how much of TeX's memory you used:
- 28253 strings out of 492995
- 667176 string characters out of 6132703
- 895035 words of memory out of 5000000
- 31350 multiletter control sequences out of 15000+600000
- 9546 words of font info for 33 fonts, out of 8000000 for 9000
+ 28267 strings out of 492995
+ 667345 string characters out of 6132703
+ 898035 words of memory out of 5000000
+ 31361 multiletter control sequences out of 15000+600000
+ 10056 words of font info for 35 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,6n,96p,726b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
-></usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><
-/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
-sr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on trabalho3.pdf (2 pages, 84620 bytes).
+ 62i,6n,96p,793b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2017/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb>
+</usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></
+usr/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></us
+r/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
+/local/texlive/2017/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/
+local/texlive/2017/texmf-dist/fonts/type1/public/cm-super/sfrm1440.pfb>
+Output written on trabalho3.pdf (3 pages, 103390 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 39 compressed objects within 1 object stream
- 5 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 70 PDF objects out of 1000 (max. 8388607)
+ 56 compressed objects within 1 object stream
+ 6 named destinations out of 1000 (max. 500000)
+ 29 words of extra memory for PDF output out of 10000 (max. 10000000)
 

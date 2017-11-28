@@ -44,10 +44,31 @@
 		
 		É de conhecimento público que o Estado do Rio de Janeiro(\textbf{RJ}) tem, senão o maior, um dos maiores índices de violência do País.  A mídia, por repetidas vezes, mostra não só as cenas de violência constantes no RJ mas também aponta dados estatísticos que corroboram ou complementam a informação capturada pelas câmeras.   Para ajudar no combate à violência e como forma de otimizar os recursos que são destinados à Segurança Pública, se faz necessário levantamento de dados referentes e pertinentes a esta matéria, bem como uma análise detalhada e sistematizada dos mesmos, para que sejam transformados em informação útil e confiável.\\
 		
-		Neste aspecto, o estudo da Estatística e suas técnicas de análise de dados, aliado ao uso de uma ferramenta computacional que possibilite ao analista acelerar os cálculos e produzir gráficos de qualidade configuram-se nos maiores aliados para esta tarefa.
+		Neste aspecto, o estudo da Estatística e suas técnicas de análise de dados, aliado ao uso de uma ferramenta computacional que possibilite ao analista acelerar os cálculos e produzir gráficos de qualidade configuram-se nos maiores aliados para esta tarefa.\\
+		
+		A \textbf{linguagem R(R)} foi criada originalmente no departamento de Estatística da universidade de Auckland, Nova Zelândia, por Ross Ihaka e Robert Gentleman.  Oferece uma grande variedade de funções estatísticas e de plotagem de gráficos, bem como oferece uma facilidade na hora de produzir códigos de qualidade e softwares interativos.  Pode ser aplicada em várias áreas do conhecimento que requeiram manipulação de dados estatísticos:  Ciências Biológicas, Sociais, Exatas, Engenharia, etc. 
 		
 		\section{Metodologia}
-		 A \textbf{linguagem R(R)} foi criada originalmente no departamento de Estatística da universidade de Auckland, Nova Zelândia, por Ross Ihaka e Robert Gentleman.  Oferece uma grande variedade de funções estatísticas e de plotagem de gráficos, bem como oferece uma facilidade na hora de produzir códigos de qualidade e softwares interativos.  Pode ser aplicada em várias áreas do conhecimento que requeiram manipulação de dados estatísticos:  Ciências Biológicas, Sociais, Exatas, Engenharia, etc. 
+		 Os dados para análise foram obtidos diretamente do site do Instituto de Segurança Pública do Estado do Rio de Janeiro(\url{http://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv}), constando de uma base de dados(\textbf{DB}) contendo 23185 linhas, dispostas em 61 colunas.  De acordo com o site, as Áreas Integradas de Segurança Pública(\textbf{AISP}) foram criadas através da \textbf{Resolução SSP N. 263 de 27 de julho de 1999}, como parte de uma política de segurança pública que tinha por objetivo estreitar a ligação entre as Polícias Civil e Militar, bem como destas com as comunidades abrangidas pelas AISP através da gestão participativa na identificação e resolução dos problemas locais de segurança pública.\\ 
+		 
+		  Para efeitos de estudo foram selecionadas da DB as seguintes variáveis, cuja descrição segue abaixo:
+		 	\begin{itemize}
+		 		\item \textbf{aisp} - Número da Área Integrada de Segurança Pública;
+		 		\item \textbf{mes\_ano} - Mês e ano da comunicação da ocorrência;
+		 		\item \textbf{estupro} - Estupro;
+		 		\item \textbf{hom\_culposo} - Homicídio culposo(trânsito);
+		 		\item \textbf{roubo\_veiculo} - Roubo de veículo;
+		 		\item \textbf{hom\_doloso} - Homicídio doloso;
+		 		\item \textbf{tentat\_hom} - Tentativa de homicídio;
+		 		\item \textbf{estelionato} - Estelionato;
+		 		\item \textbf{roubo\_celular} - Roubo de celular;
+		 		\item \textbf{pessoas\_desaparecidas} - Pessoas desaparecidas.
+		 	\end{itemize}
+	 	A seguir os dados foram agrupados em dois subconjuntos de dados:  por \textbf{mes\_ano} e por \textbf{AISP};  desta forma a visualização da técnica de clusterização ficou mais fácil de ser percebida. \\
+	 	%Colocar scritp R
+		
+		Utilizando o R pode-se sumarizar os dados nas suas medidas estatísticas(média, máximo, mínimo, desvio-padrão) e se ter uma ideia da estatística descritiva destes conjuntos de dados:
+		%Colocar script R 
 	\end{multicols}
 
 \end{document}
