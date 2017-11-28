@@ -38,9 +38,42 @@
 	\vspace{1cm}
 	\textit{\textbf{Palavras-chave}:} Clusterização, K-means, R, cluster.
 	
+	\selectlanguage{brazilian}
+	
 	\begin{multicols}{2}
 		\section{Introdução}
-		\large \textbf{\textit{Aguardando parte de Fagner}}\\
+		Mineração de dados é o método de investigação de grandes quantidades de dados com o objetivo de encontrar irregularidade, padrões e correlações para arcar a tomada de decisões e possibilitar vantagens estratégicas.\\
+		
+		A quantidade de dados produzido está dobrando a cada dois anos. Dados não-estruturados compõem sozinhos 90\% do nosso universo digital. Entretanto, mais informação não significa necessariamente mais conhecimento. A mineração de dados nos permite filtrar todo o ruído caótico e repetitivo, entender o que é relevante e, então, fazer bom uso dessa informação para avaliar os prováveis resultados.
+		
+		Os resultados obtidos com a mineração de dados podem ser usados no gerenciamento de informação, processamento de pedidos de informação, tomada de decisão, controle de processo e muitas outras aplicações. A mineração de dados pode ser aplicada de duas formas: como um processo de verificação e como um processo de descoberta . No processo de verificação, o usuário sugere uma hipótese acerca da relação entre os dados e tenta prová-la aplicando técnicas como análises estatística e multidimensional sobre um banco de dados contendo informações passadas. No processo de descoberta não é feita nenhuma suposição antecipada. Esse processo usa técnicas, tais como, árvores de decisão, algoritmos genéticos e redes neurais.\\
+		
+		As técnicas de mineração de dados podem ser aplicadas a tarefas como classificação, estimativa, associação, sumarização e segmentação. Essas tarefas são descritas a seguir:
+		\begin{itemize}
+			\item \textbf{Classificação} - Reconhece modelos que descrevem o grupo ao qual o item pertence por meio do exame dos itens já classificados e pela inferência de um conjunto de regras. Equivale  a construir um modelo de algum tipo que possa ser aplicado a dados não classificados visando categorizá-los em classes.  Empresas de operadoras de cartões de crédito e companhias telefônicas preocupam-se com a perda de clientes regulares: a classificação pode ajudar a descobrir as características de clientes que provavelmente virão abandoná-las e oferecer um modelo para ajudar os gerentes a prever quem são, de modo que se elabore antecipadamente campanhas especiais para reter esses clientes;
+			
+			\item \textbf{Estiimativa ou Regressão} - A estimativa é utilizada para determinar  valores para alguma variável contínua desconhecida como, por exemplo, lucro, distância ou saldo na poupança. Ela lida com resultados contínuos, enquanto que a classificação lida com resultados discretos. Ela pode ser usada para executar uma tarefa de classificação, convencionando-se que diferentes intervalos de valores contínuos correspondem a diferentes classes. Como exemplos de tarefas de estimativa tem-se : estimar o número de alunos de uma escola; estimar o lucro  total de uma empresa;  prever a demanda de consumidores para um novo produto;
+			
+			\item \textbf{Associação} - a detecção de relações entre os registros, ocorrências ligadas a um único evento. O exemplo clássico é determinar quais produtos costumam ser colocados juntos em um carrinho de supermercado; outro exemplo seria um estudo de modelos de compra em lojas de carros pode revelar que, na compra de um carro automático, 85\% das pessoas querem ele com bancada de couro;
+			
+			\item \textbf{Sumarização} - a tarefa de sumarização envolve métodos para encontrar uma descrição compacta para um subconjunto de dados. Um simples exemplo desta tarefa poderia ser tabular o significado e desvios padrão para todos os itens de dados;
+			
+			\item \textbf{Segmentação ou Clusterização} - funciona de maneira semelhante a classificação quando ainda não foram definidos grupos. Uma técnica em que através de métodos numéricos e a partir somente das informações das variáveis de cada caso, tem por objetivo agrupar automaticamente por aprendizado não supervisionado os \textbf{n} casos da base de dados em \textbf{k} grupos, geralmente disjuntos, denominados clusters ou agrupamentos.			
+		\end{itemize}
+	
+		Um dos métodos de clusterização é o algoritmo de \textit{\textbf{Análise de Agrupamento K-means(kmeans)}}  um dos mais conhecidos e utilizados, além de ser o que possui o maior número de variações. O algoritmo inicia com a escolha dos  k elementos que formaram as sementes iniciais. Esta escolha pode ser feita de muitas formas, entre elas:
+		\begin{itemize}
+			\item selecionando as k primeiras observações;
+			\item selecionando k observações aleatoriamente; 
+			\item escolhendo k observações de modo que seus valores sejam bastante diferentes. Por exemplo, ao se agrupar uma população em três grupos de acordo com a altura dos indivíduos, poderia se escolher um indivíduo de baixa estatura, um de estatura mediana e um alto.			
+		\end{itemize}
+	
+		Escolhidas as sementes iniciais, é calculada a distância de cada elemento em relação às sementes, agrupando o elemento ao grupo que possuir a menor distância (mais similar) e recalculando o centróide do mesmo. O processo é repetido até que todos os elementos façam parte de um dos clusters.\\
+		
+		Após agrupar todos os elementos, procura-se encontrar uma partição melhor do que a gerada arbitrariamente. Para isto, calcula-se o grau de homogeneidade interna dos grupos através da \textit{\textbf{Soma de Quadrados Residual (SQRes)}}, que é a medida usada para avaliar o quão boa é uma partição.\\
+		
+		Após o cálculo, move-se o primeiro objeto para os demais grupos e verifica-se se existe ganho na \textit{SQRes}, ou seja, se ocorre uma diminuição no valor da SQRes. Existindo, o objeto é movido para o grupo que produzir o maior ganho, a \textit{SQRes} dos grupos é recalculada e passa-se ao objeto seguinte. Depois de um certo número de iterações ou não havendo mais mudanças, o processo é interrompido.\\
+				
 		
 		É de conhecimento público que o Estado do Rio de Janeiro(\textbf{RJ}) tem, senão o maior, um dos maiores índices de violência do País.  A mídia, por repetidas vezes, mostra não só as cenas de violência constantes no RJ mas também aponta dados estatísticos que corroboram ou complementam a informação capturada pelas câmeras.   Para ajudar no combate à violência e como forma de otimizar os recursos que são destinados à Segurança Pública, se faz necessário levantamento de dados referentes e pertinentes a esta matéria, bem como uma análise detalhada e sistematizada dos mesmos, para que sejam transformados em informação útil e confiável.\\
 		
@@ -49,8 +82,17 @@
 		A \textbf{linguagem R(R)} foi criada originalmente no departamento de Estatística da universidade de Auckland, Nova Zelândia, por Ross Ihaka e Robert Gentleman.  Oferece uma grande variedade de funções estatísticas e de plotagem de gráficos, bem como oferece uma facilidade na hora de produzir códigos de qualidade e softwares interativos.  Pode ser aplicada em várias áreas do conhecimento que requeiram manipulação de dados estatísticos:  Ciências Biológicas, Sociais, Exatas, Engenharia, etc. 
 		
 		\section{Metodologia}
-		 Os dados para análise foram obtidos diretamente do site do Instituto de Segurança Pública do Estado do Rio de Janeiro(\url{http://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv}), constando de uma base de dados(\textbf{DB}) contendo 23185 linhas, dispostas em 61 colunas.  De acordo com o site, as Áreas Integradas de Segurança Pública(\textbf{AISP}) foram criadas através da \textbf{Resolução SSP N. 263 de 27 de julho de 1999}, como parte de uma política de segurança pública que tinha por objetivo estreitar a ligação entre as Polícias Civil e Militar, bem como destas com as comunidades abrangidas pelas AISP através da gestão participativa na identificação e resolução dos problemas locais de segurança pública.\\ 
-		 
+		 Os dados para análise foram obtidos diretamente do site do Instituto de Segurança Pública do Estado do Rio de Janeiro(\url{http://www.ispdados.rj.gov.br/Arquivos/BaseDPEvolucaoMensalCisp.csv}), constando de uma base de dados(\textbf{DB}) contendo 23185 linhas, dispostas em 61 colunas.  De acordo com o site, as Áreas Integradas de Segurança Pública(\textbf{AISP}) foram criadas através da \textbf{Resolução SSP N. 263 de 27 de julho de 1999}, como parte de uma política de segurança pública que tinha por objetivo estreitar a ligação entre as Polícias Civil e Militar, bem como destas com as comunidades abrangidas pelas AISP através da gestão participativa na identificação e resolução dos problemas locais de segurança pública.  A figura abaixo mostra a área de jurisdição de cada AISP no RJ:
+	\end{multicols}
+			 %Colocar figura da AISP
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.8\linewidth]{aisp}
+		\caption{Distribuição das AISPs}
+		\label{fig:aisps}
+	\end{figure}
+
+	\begin{multicols}{2}
 		  Para efeitos de estudo foram selecionadas da DB as seguintes variáveis, cuja descrição segue abaixo:
 		 	\begin{itemize}
 		 		\item \textbf{aisp} - Número da Área Integrada de Segurança Pública;
@@ -69,6 +111,61 @@
 		
 		Utilizando o R pode-se sumarizar os dados nas suas medidas estatísticas(média, máximo, mínimo, desvio-padrão) e se ter uma ideia da estatística descritiva destes conjuntos de dados:
 		%Colocar script R 
+		
+		Na sequência foi utilizada uma função intrínseca do R chamada \textit{\textbf{kmeans}}, que recebe como parâmetros um conjunto de dados e um número específico de centróides(maior que 2) e retorna um conjunto de dados formado por subconjuntos específicos, dos quais os de interesse para o estudo são:
+			\begin{itemize}
+				\item \texttt{clusters} - número do cluster associado ao dado analisado;
+				\item \texttt{centers} - coordenadas dos centros passados como parâmetros após a execução da função.
+			\end{itemize}
+		
+		Para cada subconjunto de dados o \textit{kmeans} foi aplicado nos seguintes cruzamentos de dados:
+			\begin{itemize}
+				\item \textit{Roubo de celular} $\times$ \textit{Casos de estupro};
+				\item \textit{Casos de estupro} $\times$ \textit{Tentativa de homicídio};
+				\item \textit{Roubo de veículo} $\times$ \textit{Tentativa de homicídio}.
+			\end{itemize}
+		O resultado foi armazendado em variáveis que depois foram acrescentadas aos respectivos subconjuntos de dados. \\
+		
+		Após isso foram confeccionados os gráficos onde se pode verificar a eficácia do método em agrupar os dados conforme a distância ao centróide, denotado pelo ponto marcado pelo triângulo.\\
+	\end{multicols}		
+	
+	\begin{figure}[H]
+		\centering
+		\subfigure[Por mês]{
+			\includegraphics[width=0.4\linewidth]{celEstuproMes}}
+			~
+			\subfigure[Por AISP]{
+				\includegraphics[width=0.4\linewidth]{celEstuproAISP}}
+			\caption{Roubo de celular $\times$ Casos de estupro}
+			\label{fig:celEst}
+	\end{figure}
+	
+	\begin{figure}[H]
+		\centering
+		\subfigure[Por mês]{
+			\includegraphics[width=0.4\linewidth]{estHomicidioMes}}
+		~
+		\subfigure[Por AISP]{
+			\includegraphics[width=0.4\linewidth]{estHomicidioAISP}}
+		\caption{Casos de estupro $\times$ Tentativas de homicídio}
+		\label{fig:estHom}
+	\end{figure}
+
+	\begin{figure}[H]
+		\centering
+		\subfigure[Por mês]{
+			\includegraphics[width=0.4\linewidth]{rouboHomicidioMes}}
+		~
+		\subfigure[Por AISP]{
+			\includegraphics[width=0.4\linewidth]{rouboHomicidioAISP}}
+		\caption{Roubo de veículos $\times$ Tentativas de homicídio}
+		\label{fig:rouboHom}
+	\end{figure}
+	\begin{multicols}{2}	
+		Nos gráficos relacionados ao subconjunto agrupado por mês cada ponto representa um mês no período de estudo e nos gráficos que aludem ao agrupamento por AISP os pontos representam meses no período.  
+		
+		\section{Conclusão}
+		A técnica de clusterização \textit{kmeans} é consagrada no meio estatístico como um método eficiente para agrupar dados de acordo com um determinado critério, a saber, a distância euclidiana a um determinado centróide.  Utilizada com conhecimento, aliada a um poderoso software estatístico é capaz de extrair informação de onde aparentemente há apenas desordem e desinformação.
 	\end{multicols}
 
 \end{document}

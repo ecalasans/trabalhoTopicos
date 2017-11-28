@@ -1,15 +1,19 @@
 library(dplyr)
 
+#Leitura do arquivo da base de dados
 base <- read.csv("BaseDPEvolucaoMensalCisp.csv", sep = ';')
 
+#Agrupamento por mês
 porMes <- group_by(base, mes_ano) %>% summarise(estupro=sum(estupro), celular=sum(roubo_celular), 
                                              tentHomicidio=sum(tentat_hom), homDoloso=sum(hom_doloso), homCulposo = sum(hom_culposo), 
                                              rouboVeiculo=sum(roubo_veiculo), estelionato=sum(estelionato), pessDesap=sum(pessoas_desaparecidas))
 
+#Agrupamento por AISP
 porAISP <- group_by(base, AISP) %>% summarise(estupro=sum(estupro), celular=sum(roubo_celular), tentHomicidio=sum(tentat_hom), 
                                           homDoloso=sum(hom_doloso), homCulposo = sum(hom_culposo), rouboVeiculo=sum(roubo_veiculo), 
                                           estelionato=sum(estelionato), pessDesap=sum(pessoas_desaparecidas))
 
+#Aplicação do kmeans
 kCelularEstuproMes <- kmeans(data.frame(porMes$celular, porMes$estupro), centers = 3)
 kCelularEstuproAISP <- kmeans(data.frame(porAISP$celular, porAISP$estupro), centers = 3)
 
